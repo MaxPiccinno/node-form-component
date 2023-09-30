@@ -20,6 +20,11 @@ export class FormPageComponent implements OnInit {
     this.lessons = this.mainForm.get('lessons') as FormArray;
   }
 
+  removeLessonSection(index: number) {
+    (this.mainForm.get('lessons') as FormArray).removeAt(index);
+    this.lessons = this.mainForm.get('lessons') as FormArray;
+  }
+
   private initForm() {
     this.mainForm = new FormGroup({
       name: new FormControl<string>('', [Validators.required]),
@@ -30,7 +35,8 @@ export class FormPageComponent implements OnInit {
 
   private initLessonForm(): FormGroup {
     return new FormGroup({
-      name: new FormControl<string>('', [Validators.required])
+      name: new FormControl<string>('', [Validators.required]),
+      file: new FormControl<File>(null, [Validators.required])
     })
   }
 
