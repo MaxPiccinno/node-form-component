@@ -5,6 +5,13 @@
     "nameControl": {
       "label": "nome corso",
       "placeholder": "inserisci nome corso"
+    },
+    "lessons": {
+      "title": "Lezioni corso",
+      "nameControl": {
+        "label": "nome lezione",
+        "placeholder": "inserisci nome lezione"
+      }
     }
   }
 }

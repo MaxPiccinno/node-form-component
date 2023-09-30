@@ -10,7 +10,7 @@
     <!--form wrapper-->
     <div class="mt-4 w-100 p-5">
         <form [formGroup]="mainForm">
-            <div class="d-flex flex-column gap-3">
+            <div class="h-100 d-flex flex-column gap-5">
                 <!--name control-->
                 <div>
                     <h3> {{'form.nameControl.label' | translate | uppercase}} </h3>
@@ -22,8 +22,45 @@
                     >
                 </div>
                 <!---->
+                <!--lessons section-->
+                <div>
+                    <h3> {{'form.lessons.title' | translate | uppercase}} </h3>
+                    <div
+                        class="mt-4"
+                        formArrayName="lessons"
+                    >
+                        <ng-container *ngFor="let lesson of lessons.controls; index as i">
+                            <div [formGroupName]="i">
+                                <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="name"
+                                    [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
+                                >
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <!---->
             </div>
         </form>
     </div>
     <!---->
 </div>
+
+<!--lesson form template-->
+<!-- <ng-template
+    #lessonForm
+    let-groupName
+>
+    <div [formGroupName]="groupName">
+        <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
+        <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
+        >
+    </div>
+</ng-template> -->

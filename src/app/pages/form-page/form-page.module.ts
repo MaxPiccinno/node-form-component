@@ -5,11 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormPageRoutingModule } from './form-page-routing.module';
 import { FormPageComponent } from './form-page.component';
+import { LessonFormComponent } from './components/lesson-form/lesson-form.component';
 
 
 @NgModule({
   declarations: [
-    FormPageComponent
+    FormPageComponent,
+    LessonFormComponent
   ],
   imports: [
     CommonModule,
