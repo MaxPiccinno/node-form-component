@@ -29,6 +29,10 @@
       "title": "Destinatari del corso",
       "subtitle": "Associa uno o più destinatari del corso",
       "setDeadline": "pianifica deadline"
+    },
+    "actions": {
+      "reset": "annulla",
+      "save": "salva"
     }
   }
 }

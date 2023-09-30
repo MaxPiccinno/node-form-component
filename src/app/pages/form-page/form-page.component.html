@@ -10,6 +10,7 @@
     <!--form wrapper-->
     <div class="mt-4 w-100 p-5">
         <form [formGroup]="mainForm">
+            <!--form content-->
             <div class="h-100 d-flex flex-column gap-5">
                 <!--name control-->
                 <div>
@@ -28,45 +29,44 @@
                     <div
                         class="mt-4 d-flex flex-column gap-3"
                         formArrayName="lessons"
+                        *ngFor="let lesson of lessons.controls; index as i"
                     >
-                        <ng-container *ngFor="let lesson of lessons.controls; index as i">
-                            <div
-                                class="mt-3"
-                                [formGroupName]="i"
-                            >
-                                <!--lesson name-->
-                                <div>
-                                    <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        formControlName="name"
-                                        [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
-                                    >
-                                </div>
-                                <!---->
-                                <!--lesson video-->
-                                <div class="mt-3">
-                                    <h5> {{'form.lessons.videoControl.label' | translate | uppercase}} </h5>
-                                    <div class="d-flex align-items-center justify-content-between gap-3">
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            formControlName="file"
-                                            [placeholder]=" 'form.lessons.videoControl.placeholder' | translate "
-                                        >
-                                        <!--delete btn-->
-                                        <button
-                                            class="btn btn-danger"
-                                            (click)="removeLessonSection(i)"
-                                        > <i class="bi-trash-fill"></i> </button>
-                                        <!---->
-                                    </div>
-
-                                </div>
-                                <!---->
+                        <div
+                            class="mt-3"
+                            [formGroupName]="i"
+                        >
+                            <!--lesson name-->
+                            <div>
+                                <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="name"
+                                    [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
+                                >
                             </div>
-                        </ng-container>
+                            <!---->
+                            <!--lesson video-->
+                            <div class="mt-3">
+                                <h5> {{'form.lessons.videoControl.label' | translate | uppercase}} </h5>
+                                <div class="d-flex align-items-center justify-content-between gap-3">
+                                    <input
+                                        type="file"
+                                        class="form-control"
+                                        formControlName="file"
+                                        [placeholder]=" 'form.lessons.videoControl.placeholder' | translate "
+                                    >
+                                    <!--delete btn-->
+                                    <button
+                                        class="btn btn-danger"
+                                        (click)="removeLessonSection(i)"
+                                    > <i class="bi-trash-fill"></i> </button>
+                                    <!---->
+                                </div>
+
+                            </div>
+                            <!---->
+                        </div>
                     </div>
                     <!--new lesson btn-->
                     <button
@@ -82,28 +82,30 @@
                     <div
                         class="mt-2 d-flex flex-column gap-3"
                         formArrayName="attachments"
+                        *ngFor="let attachment of attachments.controls; index as i"
                     >
-                        <ng-container *ngFor="let attachment of attachments.controls; index as i">
-                            <!--attachment file-->
-                            <div class="mt-3">
-                                <div class="d-flex align-items-center justify-content-between gap-3">
-                                    <input
-                                        type="file"
-                                        class="form-control"
-                                        [formControlName]="i"
-                                        [placeholder]=" 'form.attachments.fileControl.placeholder' | translate "
-                                    >
-                                    <!--delete btn-->
-                                    <button
-                                        class="btn btn-danger"
-                                        (click)="removeAttachmentControl(i)"
-                                    > <i class="bi-trash-fill"></i> </button>
-                                    <!---->
-                                </div>
-
+                        <!--attachment file-->
+                        <div
+                            class="mt-3"
+                            [formGroupName]="i"
+                        >
+                            <div class="d-flex align-items-center justify-content-between gap-3">
+                                <input
+                                    type="file"
+                                    class="form-control"
+                                    formControlName="file"
+                                    [placeholder]=" 'form.attachments.fileControl.placeholder' | translate "
+                                >
+                                <!--delete btn-->
+                                <button
+                                    class="btn btn-danger"
+                                    (click)="removeAttachmentControl(i)"
+                                > <i class="bi-trash-fill"></i> </button>
+                                <!---->
                             </div>
-                            <!---->
-                        </ng-container>
+
+                        </div>
+                        <!---->
                     </div>
                     <!--new attachment btn-->
                     <button
@@ -124,48 +126,57 @@
                     <div
                         class="mt-2"
                         formArrayName="receivers"
+                        *ngFor="let receiver of receivers.controls; index as i"
                     >
-                        <ng-container *ngFor="let receiver of receivers.controls; index as i">
-                            <!--receiver row-->
-                            <div
-                                class="py-2 d-flex align-items-center justify-content-between"
-                                [formGroupName]="i"
-                            >
-                                <!--checkbox-->
-                                <div class="mt-2 form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        formControlName="checked"
-                                    >
-                                    <span class="form-check-label">
-                                        {{ receiver.get('name').value | uppercase}}
-                                    </span>
-                                </div>
-                                <!---->
-                                <!--date picker-->
-                                <div class="d-flex align-items-center">
-                                    <input
-                                        matInput
-                                        [matDatepicker]="picker"
-                                        placeholder="gg/mm/aaaa"
-                                        formControlName="deadline"
-                                    >
-                                    <mat-datepicker-toggle
-                                        matIconSuffix
-                                        [for]="picker"
-                                    ></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
-                                </div>
-                                <!---->
+                        <!--receiver row-->
+                        <div
+                            class="py-2 d-flex align-items-center justify-content-between"
+                            [formGroupName]="i"
+                        >
+                            <!--checkbox-->
+                            <div class="mt-2 form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    formControlName="checked"
+                                >
+                                <span class="form-check-label">
+                                    {{ receiver.get('name').value | uppercase}}
+                                </span>
                             </div>
                             <!---->
-                        </ng-container>
+                            <!--date picker-->
+                            <div class="d-flex align-items-center">
+                                <input
+                                    matInput
+                                    [matDatepicker]="picker"
+                                    placeholder="gg/mm/aaaa"
+                                    formControlName="deadline"
+                                >
+                                <mat-datepicker-toggle
+                                    matIconSuffix
+                                    [for]="picker"
+                                ></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </div>
+                            <!---->
+                        </div>
+                        <!---->
                     </div>
                 </div>
                 <!---->
 
             </div>
+            <!---->
+            <!--action buttons-->
+            <div class="mt-3 d-flex align-items-center justify-content-center gap-3">
+                <button class="btn btn-light"> {{'form.actions.reset' | translate | uppercase}} </button>
+                <button
+                    class="btn btn-primary"
+                    (click)="submitForm()"
+                > {{'form.actions.save' | translate | uppercase}} </button>
+            </div>
+            <!---->
         </form>
     </div>
     <!---->
