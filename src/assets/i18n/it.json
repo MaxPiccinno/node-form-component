@@ -24,6 +24,11 @@
       "fileControl": {
         "placeholder": "inserisci file allegato"
       }
+    },
+    "receivers": {
+      "title": "Destinatari del corso",
+      "subtitle": "Associa uno o più destinatari del corso",
+      "setDeadline": "pianifica deadline"
     }
   }
 }

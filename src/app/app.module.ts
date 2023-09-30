@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'it'
     })
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'it-IT' },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
