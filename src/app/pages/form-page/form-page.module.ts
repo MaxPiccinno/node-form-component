@@ -11,12 +11,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LessonFormComponent } from './components/lesson-form/lesson-form.component';
 import { FormPageRoutingModule } from './form-page-routing.module';
 import { FormPageComponent } from './form-page.component';
+import { AttachmentFormComponent } from './components/attachment-form/attachment-form.component';
 
 
 @NgModule({
   declarations: [
     FormPageComponent,
-    LessonFormComponent
+    LessonFormComponent,
+    AttachmentFormComponent
   ],
   imports: [
     CommonModule,

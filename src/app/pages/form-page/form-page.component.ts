@@ -22,10 +22,6 @@ export class FormPageComponent implements OnInit {
   }
 
 
-  get attachments(): FormArray {
-    return <FormArray>this.mainForm.get('attachments');
-  }
-
   get receivers(): FormArray {
     return <FormArray>this.mainForm.get('receivers');
   }
@@ -38,14 +34,6 @@ export class FormPageComponent implements OnInit {
     this.mainForm.reset();
   }
 
-  addAttachmentControl() {
-    this.attachments.push(this.initAttachmentForm());
-  }
-
-
-  removeAttachmentControl(index: number) {
-    this.attachments.removeAt(index);
-  }
 
   private initForm() {
     this.mainForm = this.fb.group({
@@ -56,12 +44,6 @@ export class FormPageComponent implements OnInit {
     });
   }
 
-
-  private initAttachmentForm(): FormGroup {
-    return this.fb.group({
-      file: this.fb.control(null)
-    });
-  }
 
   private initReceiversControls(): FormGroup[] {
     return this.receiversList.map((item) => {
