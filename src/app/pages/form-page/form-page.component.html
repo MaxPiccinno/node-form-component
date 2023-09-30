@@ -59,7 +59,7 @@
                                         <button
                                             class="btn btn-danger"
                                             (click)="removeLessonSection(i)"
-                                        > Remove </button>
+                                        > <i class="bi-trash-fill"></i> </button>
                                         <!---->
                                     </div>
 
@@ -81,19 +81,3 @@
     </div>
     <!---->
 </div>
-
-<!--lesson form template-->
-<!-- <ng-template
-    #lessonForm
-    let-groupName
->
-    <div [formGroupName]="groupName">
-        <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
-        <input
-            type="text"
-            class="form-control"
-            formControlName="name"
-            [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
-        >
-    </div>
-</ng-template> -->
