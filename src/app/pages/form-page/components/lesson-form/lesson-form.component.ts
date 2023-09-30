@@ -1,5 +1,6 @@
-import { Component, SkipSelf } from '@angular/core';
-import { ControlContainer } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
 
 @Component({
   selector: 'app-lesson-form',
@@ -8,6 +9,20 @@ import { ControlContainer } from '@angular/forms';
 })
 export class LessonFormComponent {
 
-  constructor(@SkipSelf() public controlContainer: ControlContainer) { }
+  @Input() parentForm!: FormGroup;
+
+  constructor(private fb: FormBuilder, private formFactory: FormFactoryService) { }
+
+  get lessons(): FormArray {
+    return <FormArray>this.parentForm.get('lessons');
+  }
+
+  addLessonSection() {
+    this.lessons.push(this.formFactory.initLessonForm());
+  }
+
+  removeLessonSection(index: number) {
+    this.lessons.removeAt(index);
+  }
 
 }

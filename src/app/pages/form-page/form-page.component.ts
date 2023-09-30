@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RECEIVERS } from 'src/_static/receivers.mock';
+import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
 
 @Component({
   selector: 'app-form-page',
@@ -13,16 +14,13 @@ export class FormPageComponent implements OnInit {
 
   receiversList = RECEIVERS;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private formFactory: FormFactoryService) {
   }
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  get lessons(): FormArray {
-    return <FormArray>this.mainForm.get('lessons');
-  }
 
   get attachments(): FormArray {
     return <FormArray>this.mainForm.get('attachments');
@@ -40,17 +38,10 @@ export class FormPageComponent implements OnInit {
     this.mainForm.reset();
   }
 
-  addLessonSection() {
-    this.lessons.push(this.initLessonForm());
-  }
-
   addAttachmentControl() {
     this.attachments.push(this.initAttachmentForm());
   }
 
-  removeLessonSection(index: number) {
-    this.lessons.removeAt(index);
-  }
 
   removeAttachmentControl(index: number) {
     this.attachments.removeAt(index);
@@ -59,18 +50,12 @@ export class FormPageComponent implements OnInit {
   private initForm() {
     this.mainForm = this.fb.group({
       name: this.fb.control<string>('', [Validators.required]),
-      lessons: this.fb.array([this.initLessonForm()]),
-      attachments: this.fb.array([this.initAttachmentForm()]),
+      lessons: this.fb.array([this.formFactory.initLessonForm()]),
+      attachments: this.fb.array([this.formFactory.initAttachmentForm()]),
       receivers: this.fb.array([...this.initReceiversControls()])
     });
   }
 
-  private initLessonForm(): FormGroup {
-    return this.fb.group({
-      name: this.fb.control<string>('', [Validators.required]),
-      file: this.fb.control<File>(null, [Validators.required])
-    })
-  }
 
   private initAttachmentForm(): FormGroup {
     return this.fb.group({
