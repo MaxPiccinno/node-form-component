@@ -1,0 +1,10 @@
+{
+  "welcomeAdmin": "Ciao Amministratore",
+  "form": {
+    "title": "Creazione nuovo corso formativo",
+    "nameControl": {
+      "label": "nome corso",
+      "placeholder": "inserisci nome corso"
+    }
+  }
+}

@@ -1,1 +1,29 @@
-<p>form-page works!</p>
+<div class="container-fluid p-3">
+    <!--title-->
+    <div class="row">
+        <span>{{'welcomeAdmin' | translate}}</span>
+    </div>
+    <div class="row mt-4">
+        <span> {{'form.title' | translate}} </span>
+    </div>
+    <!---->
+    <!--form wrapper-->
+    <div class="mt-4 w-100 p-5">
+        <form [formGroup]="mainForm">
+            <div class="d-flex flex-column gap-3">
+                <!--name control-->
+                <div>
+                    <h3> {{'form.nameControl.label' | translate | uppercase}} </h3>
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="name"
+                        [placeholder]=" 'form.nameControl.placeholder' | translate "
+                    >
+                </div>
+                <!---->
+            </div>
+        </form>
+    </div>
+    <!---->
+</div>
