@@ -36,6 +36,10 @@ export class FormPageComponent implements OnInit {
     console.log(this.mainForm.value);
   }
 
+  resetForm() {
+    this.mainForm.reset();
+  }
+
   addLessonSection() {
     this.lessons.push(this.initLessonForm());
   }

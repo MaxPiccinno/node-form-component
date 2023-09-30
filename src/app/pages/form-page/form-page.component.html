@@ -141,7 +141,7 @@
                                     formControlName="checked"
                                 >
                                 <span class="form-check-label">
-                                    {{ receiver.get('name').value | uppercase}}
+                                    {{ receiversList.at(i) | uppercase}}
                                 </span>
                             </div>
                             <!---->
@@ -170,7 +170,10 @@
             <!---->
             <!--action buttons-->
             <div class="mt-3 d-flex align-items-center justify-content-center gap-3">
-                <button class="btn btn-light"> {{'form.actions.reset' | translate | uppercase}} </button>
+                <button
+                    class="btn btn-light"
+                    (click)="resetForm()"
+                > {{'form.actions.reset' | translate | uppercase}} </button>
                 <button
                     class="btn btn-primary"
                     (click)="submitForm()"
