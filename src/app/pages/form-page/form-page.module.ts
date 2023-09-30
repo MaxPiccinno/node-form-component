@@ -12,13 +12,15 @@ import { LessonFormComponent } from './components/lesson-form/lesson-form.compon
 import { FormPageRoutingModule } from './form-page-routing.module';
 import { FormPageComponent } from './form-page.component';
 import { AttachmentFormComponent } from './components/attachment-form/attachment-form.component';
+import { ReceiversFormComponent } from './components/receivers-form/receivers-form.component';
 
 
 @NgModule({
   declarations: [
     FormPageComponent,
     LessonFormComponent,
-    AttachmentFormComponent
+    AttachmentFormComponent,
+    ReceiversFormComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RECEIVERS } from 'src/_static/receivers.mock';
 import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
 
@@ -21,11 +21,6 @@ export class FormPageComponent implements OnInit {
     this.initForm();
   }
 
-
-  get receivers(): FormArray {
-    return <FormArray>this.mainForm.get('receivers');
-  }
-
   submitForm() {
     console.log(this.mainForm.value);
   }
@@ -33,7 +28,6 @@ export class FormPageComponent implements OnInit {
   resetForm() {
     this.mainForm.reset();
   }
-
 
   private initForm() {
     this.mainForm = this.fb.group({
