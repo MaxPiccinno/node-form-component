@@ -15,12 +15,17 @@ export class FormPageComponent implements OnInit {
     this.initForm();
   }
 
+  addLessonSection() {
+    (this.mainForm.get('lessons') as FormArray).controls.push(this.initLessonForm());
+    this.lessons = this.mainForm.get('lessons') as FormArray;
+  }
+
   private initForm() {
-    this.lessons = new FormArray([this.initLessonForm()]);
     this.mainForm = new FormGroup({
       name: new FormControl<string>('', [Validators.required]),
-      lessons: this.lessons
-    })
+      lessons: new FormArray([this.initLessonForm()])
+    });
+    this.lessons = this.mainForm.get('lessons') as FormArray;
   }
 
   private initLessonForm(): FormGroup {

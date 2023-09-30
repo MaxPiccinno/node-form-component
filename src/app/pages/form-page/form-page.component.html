@@ -26,7 +26,7 @@
                 <div>
                     <h3> {{'form.lessons.title' | translate | uppercase}} </h3>
                     <div
-                        class="mt-4"
+                        class="mt-4 d-flex flex-column gap-3"
                         formArrayName="lessons"
                     >
                         <ng-container *ngFor="let lesson of lessons.controls; index as i">
@@ -41,6 +41,10 @@
                             </div>
                         </ng-container>
                     </div>
+                    <button
+                        class="mt-2 btn btn-danger"
+                        (click)="addLessonSection()"
+                    > {{'form.lessons.addSection' | translate | uppercase}} </button>
                 </div>
                 <!---->
             </div>

@@ -8,9 +8,14 @@
     },
     "lessons": {
       "title": "Lezioni corso",
+      "addSection": "aggiungi sezione",
       "nameControl": {
         "label": "nome lezione",
         "placeholder": "inserisci nome lezione"
+      },
+      "videoControl": {
+        "label": "video corso",
+        "placeholder": "inserisci file video"
       }
     }
   }
