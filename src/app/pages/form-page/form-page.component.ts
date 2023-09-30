@@ -44,7 +44,7 @@ export class FormPageComponent implements OnInit {
       return this.fb.group({
         name: this.fb.control(item),
         checked: this.fb.control<boolean>(false),
-        deadline: this.fb.control<Date>(null)
+        deadline: this.fb.control<Date | null>(null)
       })
     })
   }

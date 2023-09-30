@@ -11,7 +11,7 @@ export class FormFactoryService {
   initLessonForm(): FormGroup {
     return this.fb.group({
       name: this.fb.control<string>('', [Validators.required]),
-      file: this.fb.control<File>(null, [Validators.required])
+      file: this.fb.control<File | null>(null, [Validators.required],)
     })
   }
 
