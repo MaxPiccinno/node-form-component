@@ -17,6 +17,13 @@
         "label": "video corso",
         "placeholder": "inserisci file video"
       }
+    },
+    "attachments": {
+      "title": "File allegati",
+      "addControl": "aggiungi file",
+      "fileControl": {
+        "placeholder": "inserisci file allegato"
+      }
     }
   }
 }
