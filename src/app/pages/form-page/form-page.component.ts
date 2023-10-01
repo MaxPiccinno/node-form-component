@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RECEIVERS } from 'src/_static/receivers.mock';
+import { Receiver } from 'src/app/core/models/receiver.model';
 import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
 
 @Component({
@@ -22,16 +23,29 @@ export class FormPageComponent implements OnInit {
   }
 
   get name() {
-    return this.mainForm.get('name');
+    return <FormControl>this.mainForm.get('name');
+  }
+
+  get receivers() {
+    return <FormArray>this.mainForm.get('receivers');
   }
 
   submitForm() {
-    console.log(this.mainForm.value);
+    this.mainForm.markAllAsTouched();
+
+    if (!this.receiversValid()) {
+      this.receivers.setErrors({ 'empty': true })
+
+    } else if (this.mainForm.valid) {
+      console.log(this.mainForm.value);
+    }
+
   }
 
   resetForm() {
     this.initForm();
   }
+
 
   private initForm() {
     this.mainForm = this.fb.group({
@@ -52,5 +66,11 @@ export class FormPageComponent implements OnInit {
       })
     })
   }
+
+  private receiversValid(): boolean {
+    const checkedReceivers = (this.receivers.value as Receiver[]).filter((item) => item.checked);
+    return !!checkedReceivers.length
+  }
+
 
 }

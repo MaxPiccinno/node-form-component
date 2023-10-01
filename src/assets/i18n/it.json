@@ -2,6 +2,7 @@
   "welcomeAdmin": "Ciao Amministratore",
   "form": {
     "title": "Creazione nuovo corso formativo",
+    "errors": "Errori nella compilazione",
     "nameControl": {
       "label": "nome corso",
       "placeholder": "inserisci nome corso"
@@ -28,7 +29,8 @@
     "receivers": {
       "title": "Destinatari del corso",
       "subtitle": "Associa uno o più destinatari del corso",
-      "setDeadline": "pianifica deadline"
+      "setDeadline": "pianifica deadline",
+      "empty": "Seleziona almeno un destinatario del corso"
     },
     "actions": {
       "reset": "annulla",

@@ -48,12 +48,26 @@
                     <br>
                     <!--receivers form-->
                     <app-receivers-form [parentForm]="mainForm"></app-receivers-form>
+                    <span
+                        *ngIf="!receivers.valid"
+                        class="mt-1 fw-bold text-danger"
+                    > *{{'form.receivers.empty' | translate}} </span>
                     <!---->
                 </div>
                 <!---->
 
             </div>
+            <!--general error message-->
+            <div
+                class="mt-1 py-3 row text-center bg-warning"
+                *ngIf="mainForm.invalid && (mainForm.dirty || mainForm.touched)"
+            >
+                <span class="fw-bold"> {{'form.errors' | translate}}
+                </span>
+                <!---->
+            </div>
             <!---->
+
             <!--action buttons-->
             <div class="mt-5 d-flex align-items-center justify-content-center gap-3">
                 <button
