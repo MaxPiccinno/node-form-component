@@ -10,7 +10,7 @@
     >
         <!--receiver row-->
         <div
-            class="py-2 d-flex align-items-center justify-content-between"
+            class="receiver-card p-2 d-flex align-items-center justify-content-between"
             [formGroupName]="i"
         >
             <!--checkbox-->
@@ -29,6 +29,7 @@
             <div class="d-flex align-items-center">
                 <input
                     matInput
+                    class="form-control"
                     [matDatepicker]="picker"
                     placeholder="gg/mm/aaaa"
                     formControlName="deadline"

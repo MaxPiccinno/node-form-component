@@ -1,20 +1,20 @@
-<div class="container-fluid p-3">
+<div class="container-fluid p-5">
     <!--title-->
     <div class="row">
-        <span>{{'welcomeAdmin' | translate}}</span>
+        <span class="fw-semibold">{{'welcomeAdmin' | translate}}</span>
     </div>
     <div class="row mt-4">
-        <span> {{'form.title' | translate}} </span>
+        <span class="fw-semibold"> {{'form.title' | translate}} </span>
     </div>
     <!---->
     <!--form wrapper-->
     <div class="mt-4 w-100 p-5">
         <form [formGroup]="mainForm">
             <!--form content-->
-            <div class="h-100 d-flex flex-column gap-5">
+            <div class="card h-100 d-flex flex-column gap-5">
                 <!--name control-->
                 <div *ngLet="name?.invalid && (name?.dirty || name?.touched) as invalidName">
-                    <h3> {{'form.nameControl.label' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold"> {{'form.nameControl.label' | translate | uppercase}} </h3>
                     <input
                         type="text"
                         class="form-control"
@@ -25,16 +25,16 @@
                 </div>
                 <!---->
                 <!--lessons section-->
-                <div>
-                    <h3> {{'form.lessons.title' | translate | uppercase}} </h3>
+                <div class="my-5">
+                    <h3 class="fw-bold"> {{'form.lessons.title' | translate | uppercase}} </h3>
                     <!--lessons form-->
                     <app-lesson-form [parentForm]="mainForm"></app-lesson-form>
                     <!---->
                 </div>
                 <!---->
                 <!--attachments section-->
-                <div>
-                    <h3> {{'form.attachments.title' | translate | uppercase}} </h3>
+                <div class="mb-3">
+                    <h3 class="fw-bold"> {{'form.attachments.title' | translate | uppercase}} </h3>
                     <!--attachments form-->
                     <app-attachment-form [parentForm]="mainForm"></app-attachment-form>
                     <!---->
@@ -42,7 +42,7 @@
                 <!---->
                 <!--receivers section-->
                 <div>
-                    <h3> {{'form.receivers.title' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold"> {{'form.receivers.title' | translate | uppercase}} </h3>
                     <br>
                     <!--receivers form-->
                     <app-receivers-form [parentForm]="mainForm"></app-receivers-form>
