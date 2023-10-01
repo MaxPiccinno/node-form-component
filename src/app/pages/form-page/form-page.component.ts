@@ -30,7 +30,7 @@ export class FormPageComponent implements OnInit {
   }
 
   resetForm() {
-    this.mainForm.reset();
+    this.initForm();
   }
 
   private initForm() {

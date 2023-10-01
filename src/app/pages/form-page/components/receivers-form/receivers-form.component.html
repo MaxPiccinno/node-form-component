@@ -1,7 +1,8 @@
 <div [formGroup]="parentForm">
     <div class="d-flex justify-content-between">
-        <span> {{'form.receivers.subtitle' | translate}} </span>
-        <span> {{'form.receivers.setDeadline' | translate | uppercase}} </span>
+        <span class="fw-bold text-primary-emphasis"> {{'form.receivers.subtitle' | translate}} </span>
+        <span class="fw-bold text-primary-emphasis"> {{'form.receivers.setDeadline' | translate | uppercase}}
+        </span>
     </div>
     <div
         class="mt-2"
@@ -20,7 +21,7 @@
                     type="checkbox"
                     formControlName="checked"
                 >
-                <span class="form-check-label">
+                <span class="form-check-label text-primary">
                     {{ receiversList.at(i) | uppercase}}
                 </span>
             </div>

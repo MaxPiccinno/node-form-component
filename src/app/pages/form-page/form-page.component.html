@@ -1,10 +1,10 @@
 <div class="container-fluid p-5">
     <!--title-->
     <div class="row">
-        <span class="fw-semibold">{{'welcomeAdmin' | translate}}</span>
+        <span class="fw-semibold text-primary-emphasis">{{'welcomeAdmin' | translate}}</span>
     </div>
     <div class="row mt-4">
-        <span class="fw-semibold"> {{'form.title' | translate}} </span>
+        <span class="fw-semibold text-primary"> {{'form.title' | translate}} </span>
     </div>
     <!---->
     <!--form wrapper-->
@@ -14,7 +14,8 @@
             <div class="card h-100 d-flex flex-column gap-5">
                 <!--name control-->
                 <div *ngLet="name?.invalid && (name?.dirty || name?.touched) as invalidName">
-                    <h3 class="fw-bold"> {{'form.nameControl.label' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold text-primary-emphasis"> {{'form.nameControl.label' | translate | uppercase}}
+                    </h3>
                     <input
                         type="text"
                         class="form-control"
@@ -26,7 +27,7 @@
                 <!---->
                 <!--lessons section-->
                 <div class="my-5">
-                    <h3 class="fw-bold"> {{'form.lessons.title' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold text-primary-emphasis"> {{'form.lessons.title' | translate | uppercase}} </h3>
                     <!--lessons form-->
                     <app-lesson-form [parentForm]="mainForm"></app-lesson-form>
                     <!---->
@@ -34,7 +35,8 @@
                 <!---->
                 <!--attachments section-->
                 <div class="mb-3">
-                    <h3 class="fw-bold"> {{'form.attachments.title' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold text-primary-emphasis"> {{'form.attachments.title' | translate | uppercase}}
+                    </h3>
                     <!--attachments form-->
                     <app-attachment-form [parentForm]="mainForm"></app-attachment-form>
                     <!---->
@@ -42,7 +44,7 @@
                 <!---->
                 <!--receivers section-->
                 <div>
-                    <h3 class="fw-bold"> {{'form.receivers.title' | translate | uppercase}} </h3>
+                    <h3 class="fw-bold text-primary-emphasis"> {{'form.receivers.title' | translate | uppercase}} </h3>
                     <br>
                     <!--receivers form-->
                     <app-receivers-form [parentForm]="mainForm"></app-receivers-form>
@@ -55,7 +57,7 @@
             <!--action buttons-->
             <div class="mt-5 d-flex align-items-center justify-content-center gap-3">
                 <button
-                    class="btn btn-light btn-rounded px-5 fw-semibold"
+                    class="btn btn-light btn-rounded px-5 fw-semibold text-primary-emphasis"
                     (click)="resetForm()"
                 > {{'form.actions.reset' | translate | uppercase}} </button>
                 <button
