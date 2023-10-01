@@ -80,6 +80,18 @@
                 > {{'form.actions.save' | translate | uppercase}} </button>
             </div>
             <!---->
+            <!--success message-->
+            <div
+                class="mt-3 py-3 row text-center bg-success rounded"
+                *ngIf="success"
+            >
+                <span class="fw-bold text-white"> {{'form.success' | translate}}
+                </span>
+                <!---->
+            </div>
+
+            <!---->
+
         </form>
     </div>
     <!---->

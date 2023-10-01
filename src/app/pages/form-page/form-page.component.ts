@@ -14,6 +14,7 @@ export class FormPageComponent implements OnInit {
   mainForm!: FormGroup;
 
   receiversList = RECEIVERS;
+  success: boolean = false;
 
   constructor(private fb: FormBuilder, private formFactory: FormFactoryService) {
   }
@@ -37,7 +38,10 @@ export class FormPageComponent implements OnInit {
       this.receivers.setErrors({ 'empty': true })
 
     } else if (this.mainForm.valid) {
-      console.log(this.mainForm.value);
+      this.success = true
+      setTimeout(() => {
+        this.success = false;
+      }, 2_000)
     }
 
   }

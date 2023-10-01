@@ -3,6 +3,7 @@
   "form": {
     "title": "Creazione nuovo corso formativo",
     "errors": "Errori nella compilazione",
+    "success": "Salvato correttamente",
     "nameControl": {
       "label": "nome corso",
       "placeholder": "inserisci nome corso"
