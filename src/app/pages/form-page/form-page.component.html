@@ -13,11 +13,12 @@
             <!--form content-->
             <div class="h-100 d-flex flex-column gap-5">
                 <!--name control-->
-                <div>
+                <div *ngLet="name?.invalid && (name?.dirty || name?.touched) as invalidName">
                     <h3> {{'form.nameControl.label' | translate | uppercase}} </h3>
                     <input
                         type="text"
                         class="form-control"
+                        [ngClass]="{'invalid': invalidName}"
                         formControlName="name"
                         [placeholder]=" 'form.nameControl.placeholder' | translate "
                     >

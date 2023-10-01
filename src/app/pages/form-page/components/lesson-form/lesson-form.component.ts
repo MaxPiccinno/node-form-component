@@ -17,6 +17,14 @@ export class LessonFormComponent {
     return <FormArray>this.parentForm.get('lessons');
   }
 
+  getName(index: number) {
+    return (this.parentForm.get('lessons') as FormArray).controls[index].get('name');
+  }
+
+  getFile(index: number) {
+    return (this.parentForm.get('lessons') as FormArray).controls[index].get('file');
+  }
+
   addLessonSection() {
     this.lessons.push(this.formFactory.initLessonForm());
   }

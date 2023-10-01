@@ -8,25 +8,34 @@
         <div
             class="mt-3"
             [formGroupName]="i"
+            *ngLet="getName(i) as name"
         >
             <!--lesson name-->
-            <div>
+            <div *ngLet="name?.invalid && (name?.dirty || name?.touched) as invalidName">
                 <h5> {{'form.lessons.nameControl.label' | translate | uppercase}} </h5>
                 <input
                     type="text"
                     class="form-control"
+                    [ngClass]="{'invalid': invalidName}"
                     formControlName="name"
                     [placeholder]=" 'form.lessons.nameControl.placeholder' | translate "
                 >
             </div>
             <!---->
             <!--lesson video-->
-            <div class="mt-3">
+            <div
+                class="mt-3"
+                *ngLet="getFile(i) as file"
+            >
                 <h5> {{'form.lessons.videoControl.label' | translate | uppercase}} </h5>
-                <div class="d-flex align-items-center justify-content-between gap-3">
+                <div
+                    class="d-flex align-items-center justify-content-between gap-3"
+                    *ngLet="file?.invalid && (file?.dirty || file?.touched) as invalidFile"
+                >
                     <input
                         type="file"
                         class="form-control"
+                        [ngClass]="{'invalid': invalidFile}"
                         formControlName="file"
                         [placeholder]=" 'form.lessons.videoControl.placeholder' | translate "
                     >

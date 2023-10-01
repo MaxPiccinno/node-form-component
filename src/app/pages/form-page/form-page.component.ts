@@ -21,6 +21,10 @@ export class FormPageComponent implements OnInit {
     this.initForm();
   }
 
+  get name() {
+    return this.mainForm.get('name');
+  }
+
   submitForm() {
     console.log(this.mainForm.value);
   }

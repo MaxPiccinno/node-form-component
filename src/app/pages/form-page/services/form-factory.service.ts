@@ -17,7 +17,7 @@ export class FormFactoryService {
 
   initAttachmentForm(): FormGroup {
     return this.fb.group({
-      file: this.fb.control(null)
+      file: this.fb.control<File | null>(null)
     });
   }
 }
