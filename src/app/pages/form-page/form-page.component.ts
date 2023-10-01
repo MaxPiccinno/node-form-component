@@ -4,6 +4,12 @@ import { RECEIVERS } from 'src/_static/receivers.mock';
 import { Receiver } from 'src/app/core/models/receiver.model';
 import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
 
+enum FormResult {
+  Success = 'SUCCESS',
+  Failure = 'FAILURE',
+  Default = 'DEFAULT'
+}
+
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.html',
@@ -14,7 +20,10 @@ export class FormPageComponent implements OnInit {
   mainForm!: FormGroup;
 
   receiversList = RECEIVERS;
-  success: boolean = false;
+  showResult = FormResult.Default;
+
+  //in order to make it usable in the template
+  readonly FormResult = FormResult;
 
   constructor(private fb: FormBuilder, private formFactory: FormFactoryService) {
   }
@@ -34,15 +43,18 @@ export class FormPageComponent implements OnInit {
   submitForm() {
     this.mainForm.markAllAsTouched();
 
+    const valid = this.receiversValid() && this.mainForm.valid;
+
     if (!this.receiversValid()) {
       this.receivers.setErrors({ 'empty': true })
-
-    } else if (this.mainForm.valid) {
-      this.success = true
-      setTimeout(() => {
-        this.success = false;
-      }, 2_000)
     }
+
+    this.showResult = valid ? FormResult.Success : FormResult.Failure;
+
+    //hide feedback message after 2 seconds
+    setTimeout(() => {
+      this.showResult = FormResult.Default
+    }, 2_000)
 
   }
 

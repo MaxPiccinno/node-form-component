@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { RECEIVERS } from 'src/_static/receivers.mock';
-import { FormFactoryService } from 'src/app/pages/form-page/services/form-factory.service';
+import { FormArray, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-receivers-form',
@@ -11,10 +9,6 @@ import { FormFactoryService } from 'src/app/pages/form-page/services/form-factor
 export class ReceiversFormComponent {
 
   @Input() parentForm!: FormGroup;
-
-  receiversList = RECEIVERS;
-
-  constructor(private fb: FormBuilder, private formFactory: FormFactoryService) { }
 
   get receivers(): FormArray {
     return <FormArray>this.parentForm.get('receivers');

@@ -57,16 +57,6 @@
                 <!---->
 
             </div>
-            <!--general error message-->
-            <div
-                class="mt-1 py-3 row text-center bg-warning"
-                *ngIf="mainForm.invalid && (mainForm.dirty || mainForm.touched)"
-            >
-                <span class="fw-bold"> {{'form.errors' | translate}}
-                </span>
-                <!---->
-            </div>
-            <!---->
 
             <!--action buttons-->
             <div class="mt-5 d-flex align-items-center justify-content-center gap-3">
@@ -80,19 +70,46 @@
                 > {{'form.actions.save' | translate | uppercase}} </button>
             </div>
             <!---->
-            <!--success message-->
-            <div
-                class="mt-3 py-3 row text-center bg-success rounded"
-                *ngIf="success"
-            >
-                <span class="fw-bold text-white"> {{'form.success' | translate}}
-                </span>
-                <!---->
-            </div>
 
+            <!--feedbacks-->
+            <ng-container *ngIf="showResult !== FormResult.Default">
+                <ng-container [ngSwitch]="showResult">
+                    <!--success message-->
+                    <ng-container
+                        *ngSwitchCase="FormResult.Success"
+                        [ngTemplateOutlet]="successMsg"
+                    ></ng-container>
+                    <!---->
+                    <!--general error message-->
+                    <ng-container
+                        *ngSwitchCase="FormResult.Failure"
+                        [ngTemplateOutlet]="errorsMsg"
+                    ></ng-container>
+                    <!---->
+                </ng-container>
+            </ng-container>
             <!---->
-
         </form>
     </div>
     <!---->
 </div>
+
+<!--errors msg template-->
+<ng-template #errorsMsg>
+    <div class="mt-3 py-3 row text-center bg-warning rounded">
+        <span class="fw-bold"> {{'form.errors' | translate}}
+        </span>
+        <!---->
+    </div>
+</ng-template>
+<!---->
+
+<!--success msg template-->
+<ng-template #successMsg>
+    <div class="mt-3 py-3 row text-center bg-success rounded">
+        <span class="fw-bold text-white"> {{'form.success' | translate}}
+        </span>
+        <!---->
+    </div>
+</ng-template>
+<!---->
